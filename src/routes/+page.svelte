@@ -122,6 +122,38 @@
 				</div>
 			{/each}
 		</div>
+		<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+			{#each projects as project}
+				<div class="rounded-lg border border-gray-600 p-6 transition-shadow hover:shadow-md">
+					<h3 class="mb-3 text-xl font-semibold">{project.name}</h3>
+					<p class="mb-4">{project.description}</p>
+
+					<div class="mb-4 flex flex-wrap gap-2">
+						{#each project.technologies as tech}
+							<span class="rounded bg-gray-600 px-2 py-1 text-sm">
+								{tech}
+							</span>
+						{/each}
+					</div>
+				</div>
+			{/each}
+		</div>
+		<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+			{#each projects as project}
+				<div class="rounded-lg border border-gray-600 p-6 transition-shadow hover:shadow-md">
+					<h3 class="mb-3 text-xl font-semibold">{project.name}</h3>
+					<p class="mb-4">{project.description}</p>
+
+					<div class="mb-4 flex flex-wrap gap-2">
+						{#each project.technologies as tech}
+							<span class="rounded bg-gray-600 px-2 py-1 text-sm">
+								{tech}
+							</span>
+						{/each}
+					</div>
+				</div>
+			{/each}
+		</div>
 	</section>
 
 	<!-- Education -->
@@ -132,6 +164,34 @@
 		</h2>
 
 		<div class="space-y-6">
+			{#each education as edu}
+				<div class="flex flex-col p-4 md:flex-row md:items-center md:justify-between">
+					<div class="flex-1">
+						<h3 class="text-lg font-semibold">{edu.degree}</h3>
+						<p class="font-medium">{edu.institution}</p>
+						{#if edu.details}
+							<p class="mt-1 text-sm">{edu.details}</p>
+						{/if}
+					</div>
+					<span class="mt-2 rounded-full bg-gray-600 px-3 py-1 text-sm md:mt-0">
+						{edu.duration}
+					</span>
+				</div>
+			{/each}
+			{#each education as edu}
+				<div class="flex flex-col p-4 md:flex-row md:items-center md:justify-between">
+					<div class="flex-1">
+						<h3 class="text-lg font-semibold">{edu.degree}</h3>
+						<p class="font-medium">{edu.institution}</p>
+						{#if edu.details}
+							<p class="mt-1 text-sm">{edu.details}</p>
+						{/if}
+					</div>
+					<span class="mt-2 rounded-full bg-gray-600 px-3 py-1 text-sm md:mt-0">
+						{edu.duration}
+					</span>
+				</div>
+			{/each}
 			{#each education as edu}
 				<div class="flex flex-col p-4 md:flex-row md:items-center md:justify-between">
 					<div class="flex-1">
