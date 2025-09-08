@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+@import '@fontsource-variable/roboto-mono';
 
 :global(html) {
 	scroll-behavior: smooth;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Roboto Mono Variable', monospace;
 }

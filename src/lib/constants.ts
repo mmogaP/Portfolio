@@ -1,4 +1,5 @@
 import { Github, Linkedin } from "@lucide/svelte"
+import avatar from '$lib/assets/mau.jpg';
 
 export const socials = [
     {
@@ -22,8 +23,7 @@ export const contactInfo = {
 export const profile = {
     name: 'Mauricio Moraga Michaud',
     title: 'Software Engineer',
-    avatar:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+    avatar: avatar,
     bio: 'Passionate about building impactful software solutions that enhance user experiences and drive business success.',
     aboutme: 'I am a dedicated software engineer with a strong background in developing scalable web applications. With a keen eye for detail and a commitment to quality, I strive to create solutions that not only meet but exceed client expectations. My expertise spans various technologies, and I am always eager to learn and adapt to new challenges in the ever-evolving tech landscape.',
 }

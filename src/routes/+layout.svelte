@@ -14,9 +14,9 @@
 </svelte:head>
 
 <div class="grid grid-rows-[1fr_auto]">
-	<main class="min-h-screen bg-gray-50 p-4">
+	<main class="min-h-screen bg-neutral-800 p-4 text-white">
 		{@render children?.()}
 	</main>
 
-	<Footer />
+	<!-- <Footer /> -->
 </div>
