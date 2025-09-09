@@ -1,12 +1,5 @@
 <script lang="ts">
-	import {
-		education,
-		experiences,
-		extras,
-		profile,
-		projects,
-		technologyCategories
-	} from '$lib/constants';
+	import { education, experiences, profile, projects, technologyCategories } from '$lib/constants';
 	import {
 		BadgeCheckIcon,
 		Blocks,
@@ -14,8 +7,7 @@
 		ClipboardPen,
 		ExternalLink,
 		FolderKanban,
-		GraduationCap,
-		Link
+		GraduationCap
 	} from '@lucide/svelte';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
@@ -254,7 +246,7 @@
 				<Tabs.Content value="projects">
 					<Card.Root class="bg-neutral-700">
 						<Card.Content>
-							<div class="flex flex-col gap-4">
+							<div class="grid gap-4">
 								{#each projects as project}
 									<Dialog.Root>
 										<Dialog.Trigger>
