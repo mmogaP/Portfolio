@@ -114,15 +114,15 @@
 			class="border-t border-neutral-600 p-8"
 			in:fly={{ x: 50, duration: 600, delay: 1000 }}
 		>
-			<Tabs.Root value="experience" class="w-full">
+			<Tabs.Root value="experience">
 				<Tabs.List class="bg-neutral-700">
-					<Tabs.Trigger value="experience" class="cursor-pointer"
+					<Tabs.Trigger value="experience" class="cursor-pointer text-xs"
 						><span><ClipboardPen /></span>Experience</Tabs.Trigger
 					>
-					<Tabs.Trigger value="technologies" class="cursor-pointer"
+					<Tabs.Trigger value="technologies" class="cursor-pointer text-xs"
 						><span><Blocks /></span>Skills</Tabs.Trigger
 					>
-					<Tabs.Trigger value="projects" class="cursor-pointer"
+					<Tabs.Trigger value="projects" class="cursor-pointer text-xs"
 						><span><FolderKanban /></span>Projects</Tabs.Trigger
 					>
 				</Tabs.List>
@@ -250,8 +250,8 @@
 								{#each projects as project}
 									<Dialog.Root>
 										<Dialog.Trigger>
-											<Button variant="default" class="w-full justify-between">
-												{project.name}
+											<Button variant="default" class="w-60 justify-between sm:w-full">
+												<span class="truncate">{project.name}</span>
 												<ExternalLink />
 											</Button>
 										</Dialog.Trigger>
