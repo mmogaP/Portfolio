@@ -33,7 +33,6 @@
 
 	onMount(() => {
 		mounted = true;
-		// Mostrar el badge después de un delay
 		setTimeout(() => {
 			showBadge = true;
 		}, 800);
@@ -105,156 +104,168 @@
 	</section>
 
 	<!-- Experience -->
-	<section id="experience" class="border-t border-neutral-600 p-8">
-		<Tabs.Root value="experience" class="w-full">
-			<Tabs.List class="bg-neutral-700">
-				<Tabs.Trigger value="experience"><span><ClipboardPen /></span>Experience</Tabs.Trigger>
-				<Tabs.Trigger value="technologies"><span><Blocks /></span>Technologies</Tabs.Trigger>
-				<Tabs.Trigger value="projects"><span><FolderKanban /></span>Projects</Tabs.Trigger>
-			</Tabs.List>
-			<Tabs.Content value="experience">
-				<Card.Root class="bg-neutral-700">
-					<Card.Content>
-						<div class="space-y-8">
-							{#each experiences as exp}
-								<div class="">
-									<div
-										class="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between"
-									>
-										<h2 class="text-xl font-semibold">{exp.role} @ {exp.company}</h2>
-										<span class="rounded-full border px-3 py-1 text-sm">{exp.duration}</span>
-									</div>
+	{#if mounted}
+		<section
+			id="experience"
+			class="border-t border-neutral-600 p-8"
+			in:fly={{ x: 50, duration: 600, delay: 1000 }}
+		>
+			<Tabs.Root value="experience" class="w-full">
+				<Tabs.List class="bg-neutral-700">
+					<Tabs.Trigger value="experience"><span><ClipboardPen /></span>Experience</Tabs.Trigger>
+					<Tabs.Trigger value="technologies"><span><Blocks /></span>Technologies</Tabs.Trigger>
+					<Tabs.Trigger value="projects"><span><FolderKanban /></span>Projects</Tabs.Trigger>
+				</Tabs.List>
+				<Tabs.Content value="experience">
+					<Card.Root class="bg-neutral-700">
+						<Card.Content>
+							<div class="space-y-8">
+								{#each experiences as exp}
+									<div class="">
+										<div
+											class="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between"
+										>
+											<h2 class="text-xl font-semibold">{exp.role} @ {exp.company}</h2>
+											<span class="rounded-full border px-3 py-1 text-sm">{exp.duration}</span>
+										</div>
 
-									<Accordion.Root type="single">
-										<Accordion.Item value="item-1">
-											<Accordion.Trigger>
-												<span class="flex items-center gap-2">
-													<ClipboardPen class="size-4" />
-													Details
-												</span>
-											</Accordion.Trigger>
-											<Accordion.Content>
-												<ul class="mb-4 space-y-2">
-													{#if Array.isArray(exp.description)}
-														{#each exp.description as desc}
+										<Accordion.Root type="single">
+											<Accordion.Item value="item-1">
+												<Accordion.Trigger>
+													<span class="flex items-center gap-2">
+														<ClipboardPen class="size-4" />
+														Details
+													</span>
+												</Accordion.Trigger>
+												<Accordion.Content>
+													<ul class="mb-4 space-y-2">
+														{#if Array.isArray(exp.description)}
+															{#each exp.description as desc}
+																<li class="flex items-start">
+																	<span class="mt-1 mr-2">•</span>
+																	<span class="text-sm">{desc}</span>
+																</li>
+															{/each}
+														{:else}
 															<li class="flex items-start">
 																<span class="mt-1 mr-2">•</span>
-																<span class="text-sm">{desc}</span>
+																<span class="text-sm">{exp.description}</span>
 															</li>
+														{/if}
+													</ul>
+													<div class="flex flex-wrap gap-2">
+														{#each exp.technologies as tech}
+															{@const techInfo = getTechCategoryInfo(tech)}
+															<Badge
+																variant="outline"
+																class={techInfo.color}
+																title={techInfo.category}
+															>
+																{tech}
+															</Badge>
 														{/each}
-													{:else}
-														<li class="flex items-start">
-															<span class="mt-1 mr-2">•</span>
-															<span class="text-sm">{exp.description}</span>
-														</li>
-													{/if}
-												</ul>
-												<div class="flex flex-wrap gap-2">
-													{#each exp.technologies as tech}
-														{@const techInfo = getTechCategoryInfo(tech)}
-														<Badge
-															variant="outline"
-															class={techInfo.color}
-															title={techInfo.category}
-														>
-															{tech}
-														</Badge>
-													{/each}
-												</div>
-											</Accordion.Content>
-										</Accordion.Item>
-									</Accordion.Root>
-								</div>
-							{/each}
-						</div>
-					</Card.Content>
-				</Card.Root>
-			</Tabs.Content>
-			<Tabs.Content value="technologies">
-				<Card.Root class="bg-neutral-700">
-					<Card.Content>
-						<div class="grid grid-cols-3 gap-6">
-							{#each technologies as tech}
-								<div class="space-y-2">
-									<!-- <img src={tech.icon} alt={tech.name} class="size-12" /> -->
-									<Badge variant="outline" title={tech.category} class={tech.color}>
-										{tech.name}
-									</Badge>
-									<span>
-										<Progress value={tech.level} />
-										{tech.level}%
-									</span>
-								</div>
-							{/each}
-						</div>
-					</Card.Content>
-				</Card.Root>
-			</Tabs.Content>
-			<Tabs.Content value="projects">
-				<Card.Root class="bg-neutral-700">
-					<Card.Content>
-						<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-							{#each projects as project}
-								<div
-									class="rounded-lg border border-gray-600 p-6 transition-shadow hover:shadow-md"
-								>
-									<h3 class="mb-3 text-xl font-semibold">{project.name}</h3>
-									<p class="mb-4">{project.description}</p>
-
-									<div class="mb-4 flex flex-wrap gap-2">
-										{#each project.technologies as tech}
-											<span class="rounded bg-gray-600 px-2 py-1 text-sm">
-												{tech}
-											</span>
-										{/each}
+													</div>
+												</Accordion.Content>
+											</Accordion.Item>
+										</Accordion.Root>
 									</div>
-								</div>
-							{/each}
-						</div>
-					</Card.Content>
-				</Card.Root>
-			</Tabs.Content>
-		</Tabs.Root>
-	</section>
+								{/each}
+							</div>
+						</Card.Content>
+					</Card.Root>
+				</Tabs.Content>
+				<Tabs.Content value="technologies">
+					<Card.Root class="bg-neutral-700">
+						<Card.Content>
+							<div class="grid grid-cols-3 gap-6">
+								{#each technologies as tech}
+									<div class="space-y-2">
+										<!-- <img src={tech.icon} alt={tech.name} class="size-12" /> -->
+										<Badge variant="outline" title={tech.category} class={tech.color}>
+											{tech.name}
+										</Badge>
+										<span>
+											<Progress value={tech.level} />
+											{tech.level}%
+										</span>
+									</div>
+								{/each}
+							</div>
+						</Card.Content>
+					</Card.Root>
+				</Tabs.Content>
+				<Tabs.Content value="projects">
+					<Card.Root class="bg-neutral-700">
+						<Card.Content>
+							<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+								{#each projects as project}
+									<div
+										class="rounded-lg border border-gray-600 p-6 transition-shadow hover:shadow-md"
+									>
+										<h3 class="mb-3 text-xl font-semibold">{project.name}</h3>
+										<p class="mb-4">{project.description}</p>
+
+										<div class="mb-4 flex flex-wrap gap-2">
+											{#each project.technologies as tech}
+												<span class="rounded bg-gray-600 px-2 py-1 text-sm">
+													{tech}
+												</span>
+											{/each}
+										</div>
+									</div>
+								{/each}
+							</div>
+						</Card.Content>
+					</Card.Root>
+				</Tabs.Content>
+			</Tabs.Root>
+		</section>
+	{/if}
 
 	<!-- Education -->
-	<section id="education" class="border-t border-neutral-600 p-8">
-		<h2 class="mb-6 flex items-center text-2xl font-bold">
-			<span class="mr-3"><GraduationCap /></span>
-			Education
-		</h2>
+	{#if mounted}
+		<section
+			id="education"
+			class="border-t border-neutral-600 p-8"
+			in:fly={{ x: 50, duration: 600, delay: 1000 }}
+		>
+			<h2 class="mb-6 flex items-center text-2xl font-bold">
+				<span class="mr-3"><GraduationCap /></span>
+				Education
+			</h2>
 
-		<div class="space-y-6">
-			{#each education as edu}
-				<div class="flex flex-col p-4 md:flex-row md:items-center md:justify-between">
-					<div class="flex-1">
-						<h3 class="text-lg font-semibold">
-							<HoverCard.Root>
-								<HoverCard.Trigger
-									href={edu.href}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="hover:underline">{edu.degree}</HoverCard.Trigger
-								>
-								<!-- <HoverCard.Content>
+			<div class="space-y-6">
+				{#each education as edu}
+					<div class="flex flex-col p-4 md:flex-row md:items-center md:justify-between">
+						<div class="flex-1">
+							<h3 class="text-lg font-semibold">
+								<HoverCard.Root>
+									<HoverCard.Trigger
+										href={edu.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="hover:underline">{edu.degree}</HoverCard.Trigger
+									>
+									<!-- <HoverCard.Content>
 									<p class="max-w-xs rounded bg-gray-700 p-2 text-sm shadow-lg">
 										Click to view more details
 									</p>
 								</HoverCard.Content> -->
-							</HoverCard.Root>
-						</h3>
-						<p class="font-medium">{edu.institution}</p>
-						{#if edu.details}
-							<p class="mt-1 text-sm">{edu.details}</p>
-						{/if}
+								</HoverCard.Root>
+							</h3>
+							<p class="font-medium">{edu.institution}</p>
+							{#if edu.details}
+								<p class="mt-1 text-sm">{edu.details}</p>
+							{/if}
+						</div>
+						<span class="mt-2 rounded-full border px-3 py-1 text-sm md:mt-0">
+							{edu.duration}
+						</span>
 					</div>
-					<span class="mt-2 rounded-full border px-3 py-1 text-sm md:mt-0">
-						{edu.duration}
-					</span>
-				</div>
-			{/each}
-		</div>
-	</section>
+				{/each}
+			</div>
+		</section>
+	{/if}
 </div>
 
 <!-- Extra -->
