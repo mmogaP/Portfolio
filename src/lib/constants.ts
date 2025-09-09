@@ -1,5 +1,7 @@
 import { Github, Linkedin, Mail } from "@lucide/svelte"
 import avatar from '$lib/assets/yo.jpg';
+import gif from '$lib/assets/gif.gif';
+
 
 export const socials = [
     {
@@ -144,9 +146,10 @@ export const experiences = [
         duration: 'Jul 2024 - Jul 2025',
         technologies: ['Svelte', 'Node.js', 'GCP', 'Docker', 'HonoJS', 'SQLite', 'Tailwind CSS', 'TypeScript', 'Django', 'Python', 'ThunderClient'],
         description: [
-            'Led the complete development of a SaaS platform for oceanic drift prediction, in partnership with the Chilean Navy. Implemented scalable microservices architecture with Bun, Hono, and FastAPI, reducing infrastructure costs by 75% (from $300k to $70k CLP monthly) through migration to Google Cloud Run. Automated daily satellite data ingestion from Copernicus and optimized performance by 60% compared to the initial prototype.',
+            'Led the development of a SaaS platform for oceanic drift prediction, in partnership with the Chilean Navy. Implemented scalable microservices architecture with Bun, Hono, and FastAPI, reducing infrastructure costs by 75% (from $300k to $70k CLP monthly) through migration to Google Cloud Run. Automated daily satellite data ingestion from Copernicus and optimized performance by 60% compared to the initial prototype.',
             'Managed requirements directly with the CEO, defined technical roadmap, and represented the startup at ChileMass with an English pitch.Secured funding from the Google for Startups program and led meetings with international clients.Actively participated in networking events for market validation and business development.'
         ],
+        gif: gif
     },
     {
         role: 'Software Engineer',

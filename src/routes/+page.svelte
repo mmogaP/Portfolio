@@ -22,11 +22,12 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as HoverCard from '$lib/components/ui/hover-card/index.js';
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
 
 	import { onMount } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
-	import { getLevelStats, getTechCategoryInfo, technologies } from '$lib/techUtils';
+	import { getTechCategoryInfo, technologies } from '$lib/techUtils';
 
 	let mounted = false;
 	let showBadge = false;
@@ -173,6 +174,15 @@
 															</Badge>
 														{/each}
 													</div>
+													{#if exp.gif}
+														<div class="mt-4">
+															<img
+																src={exp.gif}
+																alt="Experience GIF"
+																class="rounded-lg border border-neutral-600 shadow-lg"
+															/>
+														</div>
+													{/if}
 												</Accordion.Content>
 											</Accordion.Item>
 										</Accordion.Root>
@@ -236,20 +246,89 @@
 						<Card.Content>
 							<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
 								{#each projects as project}
-									<div
-										class="rounded-lg border border-gray-600 p-6 transition-shadow hover:shadow-md"
-									>
-										<h3 class="mb-3 text-xl font-semibold">{project.name}</h3>
-										<p class="mb-4">{project.description}</p>
+									<Dialog.Root>
+										<Dialog.Trigger>
+											<button
+												class="w-full rounded-lg border border-gray-600 p-6 text-left transition-all hover:border-gray-500 hover:shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+											>
+												<h3 class="mb-3 text-xl font-semibold text-white">
+													{project.name}
+												</h3>
+												<p class="mb-4 text-gray-300">{project.description}</p>
 
-										<div class="mb-4 flex flex-wrap gap-2">
-											{#each project.technologies as tech}
-												<span class="rounded bg-gray-600 px-2 py-1 text-sm">
-													{tech}
-												</span>
-											{/each}
-										</div>
-									</div>
+												<div class="mb-4 flex flex-wrap gap-2">
+													{#each project.technologies as tech}
+														<span class="rounded bg-gray-600 px-2 py-1 text-sm text-gray-200">
+															{tech}
+														</span>
+													{/each}
+												</div>
+											</button>
+										</Dialog.Trigger>
+
+										<Dialog.Content class="sm:max-w-[425px]">
+											<Dialog.Header>
+												<Dialog.Title>{project.name}</Dialog.Title>
+												<Dialog.Description>Detalles del proyecto</Dialog.Description>
+											</Dialog.Header>
+
+											<div class="space-y-4">
+												<div>
+													<h4 class="mb-2 font-semibold">Descripción</h4>
+													<p class="text-sm text-gray-600">
+														{project.description}
+													</p>
+												</div>
+
+												<div>
+													<h4 class="mb-2 font-semibold">Tecnologías utilizadas</h4>
+													<div class="flex flex-wrap gap-2">
+														{#each project.technologies as tech}
+															<span class="rounded bg-gray-100 px-2 py-1 text-sm">
+																{tech}
+															</span>
+														{/each}
+													</div>
+												</div>
+
+												{#if project.link}
+													<div>
+														<a
+															href={project.link}
+															target="_blank"
+															rel="noopener noreferrer"
+															class="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
+														>
+															Ver proyecto
+															<svg
+																class="ml-2 h-4 w-4"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	stroke-linecap="round"
+																	stroke-linejoin="round"
+																	stroke-width="2"
+																	d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+																/>
+															</svg>
+														</a>
+													</div>
+												{/if}
+											</div>
+
+											<Dialog.Footer>
+												<Dialog.Close>
+													<button
+														class="rounded bg-gray-200 px-4 py-2 text-gray-800 transition-colors hover:bg-gray-300"
+													>
+														Cerrar
+													</button>
+												</Dialog.Close>
+											</Dialog.Footer>
+										</Dialog.Content>
+									</Dialog.Root>
 								{/each}
 							</div>
 						</Card.Content>
