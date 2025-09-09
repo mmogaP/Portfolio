@@ -18,5 +18,5 @@
 		{@render children?.()}
 	</main>
 
-	<!-- <Footer /> -->
+	<Footer />
 </div>
