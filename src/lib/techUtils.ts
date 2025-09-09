@@ -13,11 +13,11 @@ export const technologies = Object.entries(technologyCategories).flatMap(([categ
 // Function to convert level string to percentage
 function getLevelPercentage(level: string) {
     const levelMap = {
-        'Principiante': 20, // 20-30%
-        'Básico': 40, // 40-55%
-        'Intermedio': 60, // 60-75%
-        'Avanzado': 80, // 80-95%
-        'Experto': 100 // 95-100%
+        'Noob': 20, // 20-30%
+        'Basic': 40, // 40-55%
+        'Intermediate': 60, // 60-75%
+        'Advanced': 80, // 80-95%
+        'Expert': 100 // 95-100%
     };
     return levelMap[level as keyof typeof levelMap];
 }

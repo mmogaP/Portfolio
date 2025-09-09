@@ -12,12 +12,15 @@
 		Blocks,
 		Briefcase,
 		ClipboardPen,
+		ExternalLink,
 		FolderKanban,
-		GraduationCap
+		GraduationCap,
+		Link
 	} from '@lucide/svelte';
 
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Progress } from '$lib/components/ui/progress/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as HoverCard from '$lib/components/ui/hover-card/index.js';
@@ -121,9 +124,15 @@
 		>
 			<Tabs.Root value="experience" class="w-full">
 				<Tabs.List class="bg-neutral-700">
-					<Tabs.Trigger value="experience"><span><ClipboardPen /></span>Experience</Tabs.Trigger>
-					<Tabs.Trigger value="technologies"><span><Blocks /></span>Skills</Tabs.Trigger>
-					<Tabs.Trigger value="projects"><span><FolderKanban /></span>Projects</Tabs.Trigger>
+					<Tabs.Trigger value="experience" class="cursor-pointer"
+						><span><ClipboardPen /></span>Experience</Tabs.Trigger
+					>
+					<Tabs.Trigger value="technologies" class="cursor-pointer"
+						><span><Blocks /></span>Skills</Tabs.Trigger
+					>
+					<Tabs.Trigger value="projects" class="cursor-pointer"
+						><span><FolderKanban /></span>Projects</Tabs.Trigger
+					>
 				</Tabs.List>
 				<Tabs.Content value="experience">
 					<Card.Root class="bg-neutral-700">
@@ -141,7 +150,7 @@
 										<Accordion.Root type="single">
 											<Accordion.Item value="item-1">
 												<Accordion.Trigger>
-													<span class="flex items-center gap-2">
+													<span class="flex cursor-pointer items-center gap-2">
 														<ClipboardPen class="size-4" />
 														Details
 													</span>
@@ -198,7 +207,7 @@
 							<!-- Simple Category Filter -->
 							<div class="mb-6 flex flex-wrap gap-2">
 								<button
-									class="rounded px-3 py-1 text-sm {selectedCategory === 'all'
+									class="cursor-pointer rounded px-3 py-1 text-sm {selectedCategory === 'all'
 										? 'bg-blue-500 text-white'
 										: 'bg-neutral-600 hover:bg-neutral-500'}"
 									on:click={() => (selectedCategory = 'all')}
@@ -207,7 +216,8 @@
 								</button>
 								{#each Object.keys(technologyCategories) as category}
 									<button
-										class="rounded px-3 py-1 text-sm capitalize {selectedCategory === category
+										class="cursor-pointer rounded px-3 py-1 text-sm capitalize {selectedCategory ===
+										category
 											? 'bg-blue-500 text-white'
 											: 'bg-neutral-600 hover:bg-neutral-500'}"
 										on:click={() => (selectedCategory = category)}
@@ -244,89 +254,52 @@
 				<Tabs.Content value="projects">
 					<Card.Root class="bg-neutral-700">
 						<Card.Content>
-							<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+							<div class="flex flex-col gap-4">
 								{#each projects as project}
 									<Dialog.Root>
 										<Dialog.Trigger>
-											<button
-												class="w-full rounded-lg border border-gray-600 p-6 text-left transition-all hover:border-gray-500 hover:shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-											>
-												<h3 class="mb-3 text-xl font-semibold text-white">
-													{project.name}
-												</h3>
-												<p class="mb-4 text-gray-300">{project.description}</p>
-
-												<div class="mb-4 flex flex-wrap gap-2">
-													{#each project.technologies as tech}
-														<span class="rounded bg-gray-600 px-2 py-1 text-sm text-gray-200">
-															{tech}
-														</span>
-													{/each}
-												</div>
-											</button>
+											<Button variant="default" class="w-full justify-between">
+												{project.name}
+												<ExternalLink />
+											</Button>
 										</Dialog.Trigger>
 
-										<Dialog.Content class="sm:max-w-[425px]">
+										<Dialog.Content
+											class="border border-neutral-600 bg-neutral-700 p-6 text-white shadow-lg sm:max-w-[425px]"
+										>
 											<Dialog.Header>
 												<Dialog.Title>{project.name}</Dialog.Title>
-												<Dialog.Description>Detalles del proyecto</Dialog.Description>
+												<Dialog.Description class="text-sm"
+													>{project.description}</Dialog.Description
+												>
 											</Dialog.Header>
 
-											<div class="space-y-4">
+											<div class="space-y-4 text-center">
 												<div>
-													<h4 class="mb-2 font-semibold">Descripción</h4>
-													<p class="text-sm text-gray-600">
-														{project.description}
-													</p>
-												</div>
-
-												<div>
-													<h4 class="mb-2 font-semibold">Tecnologías utilizadas</h4>
-													<div class="flex flex-wrap gap-2">
+													<h4 class="mb-2 font-semibold">Tech Stack</h4>
+													<div class="flex flex-wrap justify-center gap-2">
 														{#each project.technologies as tech}
-															<span class="rounded bg-gray-100 px-2 py-1 text-sm">
+															{@const techInfo = getTechCategoryInfo(tech)}
+															<Badge
+																variant="outline"
+																class={techInfo.color}
+																title={techInfo.category}
+															>
 																{tech}
-															</span>
+															</Badge>
 														{/each}
 													</div>
 												</div>
 
 												{#if project.link}
 													<div>
-														<a
-															href={project.link}
-															target="_blank"
-															rel="noopener noreferrer"
-															class="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
-														>
-															Ver proyecto
-															<svg
-																class="ml-2 h-4 w-4"
-																fill="none"
-																stroke="currentColor"
-																viewBox="0 0 24 24"
-															>
-																<path
-																	stroke-linecap="round"
-																	stroke-linejoin="round"
-																	stroke-width="2"
-																	d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-																/>
-															</svg>
-														</a>
+														<Button variant="secondary" href={project.link}>
+															Project
+															<ExternalLink />
+														</Button>
 													</div>
 												{/if}
 											</div>
-
-											<Dialog.Footer>
-												<Dialog.Close>
-													<button
-														class="rounded bg-gray-200 px-4 py-2 text-gray-800 transition-colors hover:bg-gray-300"
-													>
-														Cerrar
-													</button>
-												</Dialog.Close>
-											</Dialog.Footer>
 										</Dialog.Content>
 									</Dialog.Root>
 								{/each}
@@ -360,7 +333,12 @@
 										href={edu.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="hover:underline">{edu.degree}</HoverCard.Trigger
+										class="
+											text-sm 
+											hover:text-blue-400
+											hover:underline"
+									>
+										{edu.degree}</HoverCard.Trigger
 									>
 									<!-- <HoverCard.Content>
 									<p class="max-w-xs rounded bg-gray-700 p-2 text-sm shadow-lg">
@@ -369,7 +347,7 @@
 								</HoverCard.Content> -->
 								</HoverCard.Root>
 							</h3>
-							<p class="font-medium">{edu.institution}</p>
+							<p class="text-sm font-semibold">{edu.institution}</p>
 							{#if edu.details}
 								<p class="mt-1 text-sm">{edu.details}</p>
 							{/if}
@@ -384,23 +362,25 @@
 	{/if}
 
 	<!-- Extras Section -->
-	<div class="border-t border-neutral-600 p-8">
-		<h2 class="mb-6 flex items-center text-2xl font-bold">
-			<span class="mr-3"><Blocks /></span>
-			Extras
-		</h2>
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each extras as extra}
-				<Card.Root class="bg-neutral-700">
-					<Card.Content class="flex flex-col items-center text-center">
-						<!-- <img src={extra.items} alt={extra.name} class="mb-4 size-16" /> -->
-						<!-- <h3 class="mb-2 text-lg font-semibold">{extra.name}</h3>
-						<p class="text-sm">{extra.description}</p> -->
-					</Card.Content>
-				</Card.Root>
-			{/each}
+	<!-- {#if mounted}
+		<div class="border-t border-neutral-600 p-8" in:fly={{ x: 50, duration: 600, delay: 1000 }}>
+			<h2 class="mb-6 flex items-center text-2xl font-bold">
+				<span class="mr-3"><Blocks /></span>
+				Extras
+			</h2>
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{#each extras as extra}
+					<Card.Root class="bg-neutral-700">
+						<Card.Content class="flex flex-col items-center text-center">
+							<img src={extra.items} alt={extra.name} class="mb-4 size-16" /> 
+							<h3 class="mb-2 text-lg font-semibold">{extra.name}</h3>
+						<p class="text-sm">{extra.description}</p> 
+						</Card.Content>
+					</Card.Root>
+				{/each}
+			</div>
 		</div>
-	</div>
+	{/if} -->
 </div>
 
 <style>

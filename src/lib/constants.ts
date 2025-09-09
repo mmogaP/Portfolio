@@ -3,6 +3,8 @@ import avatar from '$lib/assets/yo.jpg';
 import gif from '$lib/assets/gif.gif';
 
 
+
+
 export const socials = [
     {
         label: 'GitHub',
@@ -31,111 +33,103 @@ export const profile = {
 export const technologyCategories = {
     frontend: {
         techs: [
-            { name: 'React', level: 'Avanzado' },
-            { name: 'Svelte', level: 'Intermedio' },
-            { name: 'Vue.js', level: 'Intermedio' },
-            { name: 'Angular', level: 'Básico' },
-            { name: 'HTML5', level: 'Avanzado' },
-            { name: 'CSS3', level: 'Avanzado' },
-            { name: 'Tailwind CSS', level: 'Avanzado' },
-            { name: 'JavaScript', level: 'Avanzado' },
-            { name: 'TypeScript', level: 'Intermedio' }
+            { name: 'React', level: 'Advanced' },
+            { name: 'Svelte', level: 'Intermediate' },
+            { name: 'Vue.js', level: 'Intermediate' },
+            { name: 'Angular', level: 'Basic' },
+            { name: 'HTML5', level: 'Advanced' },
+            { name: 'CSS3', level: 'Advanced' },
+            { name: 'Tailwind CSS', level: 'Advanced' },
+            { name: 'JavaScript', level: 'Advanced' },
+            { name: 'TypeScript', level: 'Intermediate' },
+            { name: 'PrimeNG', level: 'Basic' }
         ],
         color: 'bg-blue-500 hover:bg-blue-600 text-white border-blue-500'
     },
     backend: {
         techs: [
-            { name: 'HonoJS', level: 'Intermedio' },
-            { name: 'Node.js', level: 'Avanzado' },
-            { name: 'Express', level: 'Avanzado' },
-            { name: 'Python', level: 'Intermedio' },
-            { name: 'Django', level: 'Básico' },
-            { name: 'FastAPI', level: 'Intermedio' },
-            { name: 'Ruby on Rails', level: 'Básico' },
-            { name: 'Java', level: 'Básico' },
-            { name: 'Spring', level: 'Principiante' },
-            { name: 'PHP', level: 'Básico' },
-            { name: 'Laravel', level: 'Básico' }
+            { name: 'HonoJS', level: 'Intermediate' },
+            { name: 'Node.js', level: 'Advanced' },
+            { name: 'Express', level: 'Advanced' },
+            { name: 'Python', level: 'Intermediate' },
+            { name: 'Django', level: 'Basic' },
+            { name: 'FastAPI', level: 'Intermediate' },
+            { name: 'Ruby on Rails', level: 'Basic' },
+            { name: 'Java', level: 'Basic' }
         ],
         color: 'bg-green-500 hover:bg-green-600 text-white border-green-500'
     },
     database: {
         techs: [
-            { name: 'MongoDB', level: 'Avanzado' },
-            { name: 'PostgreSQL', level: 'Intermedio' },
-            { name: 'MySQL', level: 'Intermedio' },
-            { name: 'Redis', level: 'Básico' },
-            { name: 'SQLite', level: 'Intermedio' },
-            { name: 'Oracle', level: 'Principiante' },
-            { name: 'Cassandra', level: 'Principiante' },
-            { name: 'DynamoDB', level: 'Básico' }
+            { name: 'MongoDB', level: 'Advanced' },
+            { name: 'PostgreSQL', level: 'Intermediate' },
+            { name: 'MySQL', level: 'Intermediate' },
+            { name: 'Redis', level: 'Basic' },
+            { name: 'SQLite', level: 'Intermediate' },
+            { name: 'Firebase', level: 'Intermediate' }
         ],
         color: 'bg-purple-500 hover:bg-purple-600 text-white border-purple-500'
     },
     devops: {
         techs: [
-            { name: 'Docker', level: 'Intermedio' },
-            { name: 'Kubernetes', level: 'Básico' },
-            { name: 'AWS', level: 'Intermedio' },
-            { name: 'Azure', level: 'Básico' },
-            { name: 'GCP', level: 'Básico' },
-            { name: 'Jenkins', level: 'Básico' },
-            { name: 'GitLab CI', level: 'Intermedio' },
-            { name: 'Terraform', level: 'Principiante' },
-            { name: 'Ansible', level: 'Principiante' }
+            { name: 'Docker', level: 'Intermediate' },
+            { name: 'AWS', level: 'Intermediate' },
+            { name: 'Azure', level: 'Intermediate' },
+            { name: 'GCP', level: 'Intermediate' },
+            { name: 'Google Cloud Run', level: 'Intermediate' },
+            { name: 'Jenkins', level: 'Intermediate' },
+            { name: 'GitHub Actions (CI/CD)', level: 'Intermediate' },
+            { name: 'API Gateway', level: 'Basic' },
+            { name: 'Microservices', level: 'Intermediate' }
         ],
         color: 'bg-orange-500 hover:bg-orange-600 text-white border-orange-500'
     },
     testing: {
         techs: [
-            { name: 'Postman', level: 'Avanzado' },
-            { name: 'Jest', level: 'Intermedio' },
-            { name: 'Cypress', level: 'Intermedio' },
-            { name: 'Selenium', level: 'Básico' },
-            { name: 'Mocha', level: 'Básico' },
-            { name: 'Chai', level: 'Básico' },
-            { name: 'Vitest', level: 'Intermedio' },
-            { name: 'Playwright', level: 'Básico' },
-            { name: 'Testing Library', level: 'Intermedio' }
+            { name: 'Postman', level: 'Advanced' },
+            { name: 'Jest', level: 'Intermediate' },
+            { name: 'Vitest', level: 'Intermediate' },
+            { name: 'ThunderClient', level: 'Intermediate' }
         ],
         color: 'bg-red-500 hover:bg-red-600 text-white border-red-500'
     },
     tools: {
         techs: [
-            { name: 'Git', level: 'Avanzado' },
-            { name: 'GitHub', level: 'Avanzado' },
-            { name: 'GitLab', level: 'Intermedio' },
-            { name: 'Figma', level: 'Intermedio' },
-            { name: 'VS Code', level: 'Avanzado' },
-            { name: 'Postman', level: 'Avanzado' },
-            { name: 'Insomnia', level: 'Intermedio' },
-            { name: 'Webpack', level: 'Básico' },
-            { name: 'Vite', level: 'Intermedio' }
+            { name: 'Git', level: 'Advanced' },
+            { name: 'GitHub', level: 'Advanced' },
+            { name: 'Figma', level: 'Intermediate' },
+            { name: 'Swagger', level: 'Intermediate' },
+            { name: 'Jira', level: 'Basic' },
+            { name: 'Bun', level: 'Intermediate' },
+            { name: 'Yarn', level: 'Intermediate' },
+            { name: 'Expo', level: 'Basic' }
         ],
         color: 'bg-gray-500 hover:bg-gray-600 text-white border-gray-500'
     },
     mobile: {
         techs: [
-            { name: 'React Native', level: 'Intermedio' },
-            { name: 'Flutter', level: 'Básico' },
-            { name: 'Swift', level: 'Principiante' },
-            { name: 'Kotlin', level: 'Principiante' },
-            { name: 'Ionic', level: 'Básico' },
-            { name: 'Xamarin', level: 'Principiante' },
-            { name: 'Cordova', level: 'Básico' }
+            { name: 'React Native', level: 'Intermediate' },
+            { name: 'Flutter', level: 'Intermediate' },
+            { name: 'Kotlin', level: 'Intermediate' },
+            { name: 'Android Studio', level: 'Basic' }
         ],
         color: 'bg-pink-500 hover:bg-pink-600 text-white border-pink-500'
     },
     api: {
         techs: [
-            { name: 'RESTful APIs', level: 'Avanzado' },
-            { name: 'GraphQL', level: 'Intermedio' },
-            { name: 'gRPC', level: 'Básico' },
-            { name: 'WebSocket', level: 'Intermedio' },
-            { name: 'REST API', level: 'Avanzado' },
-            { name: 'API Gateway', level: 'Básico' }
+            { name: 'REST API', level: 'Advanced' },
+            { name: 'USGS API', level: 'Basic' },
+            { name: 'Copernicus API', level: 'Advanced' },
+            { name: 'Leaflet', level: 'Intermediate' }
         ],
         color: 'bg-teal-500 hover:bg-teal-600 text-white border-teal-500'
+    },
+    methodologies: {
+        techs: [
+            { name: 'Scrum', level: 'Intermediate' },
+            { name: 'Agile', level: 'Intermediate' }
+        ],
+        color: 'bg-indigo-500 hover:bg-indigo-600 text-white border-indigo-500'
     }
 };
 
@@ -144,7 +138,7 @@ export const experiences = [
         role: 'CTO | Software Engineer',
         company: 'RedOcean',
         duration: 'Jul 2024 - Jul 2025',
-        technologies: ['Svelte', 'Node.js', 'GCP', 'Docker', 'HonoJS', 'SQLite', 'Tailwind CSS', 'TypeScript', 'Django', 'Python', 'ThunderClient'],
+        technologies: ['Svelte', 'Node.js', 'GCP', 'API Gateway', 'Docker', 'HonoJS', 'SQLite', 'Tailwind CSS', 'TypeScript', 'Django', 'Python', 'ThunderClient', 'FastAPI', 'Bun', 'Microservices', 'Google Cloud Run', 'Copernicus API', 'Scrum', 'Agile', 'Git', 'GitHub', 'Figma', 'Jira'],
         description: [
             'Led the development of a SaaS platform for oceanic drift prediction, in partnership with the Chilean Navy. Implemented scalable microservices architecture with Bun, Hono, and FastAPI, reducing infrastructure costs by 75% (from $300k to $70k CLP monthly) through migration to Google Cloud Run. Automated daily satellite data ingestion from Copernicus and optimized performance by 60% compared to the initial prototype.',
             'Managed requirements directly with the CEO, defined technical roadmap, and represented the startup at ChileMass with an English pitch.Secured funding from the Google for Startups program and led meetings with international clients.Actively participated in networking events for market validation and business development.'
@@ -155,7 +149,7 @@ export const experiences = [
         role: 'Software Engineer',
         company: 'University of Valparaíso',
         duration: 'Mar 2023 - Dec 2023',
-        technologies: ['Node.js', 'TypeScript', 'Angular', 'PrimeNG'],
+        technologies: ['Node.js', 'TypeScript', 'Angular', 'PrimeNG', 'REST API', 'Git', 'GitHub', 'Vitest', 'Jest', 'Scrum', 'Agile', 'Swagger'],
         description: [
             'Developed and maintained backend endpoints using Node.js and TypeScript for university systems.',
             'Designed and implemented global and career-specific notification systems using Angular and PrimeNG.',
@@ -167,7 +161,7 @@ export const experiences = [
         role: 'Backend Developer',
         company: 'Consorcio Progresa, Codefire',
         duration: 'Jan 2022 - Feb 2022',
-        technologies: ['Node.js', 'TypeScript', 'Swagger'],
+        technologies: ['Node.js', 'TypeScript', 'Swagger', 'REST API', 'Git', 'GitHub', 'Jest', 'Scrum', 'Agile'],
         description: [
             'Developed and maintained backend endpoints using Node.js and TypeScript.',
             'Created API documentation using Swagger and modularized backend architecture to improve maintainability and scalability.',
@@ -178,7 +172,7 @@ export const experiences = [
         role: 'Mobile Developer',
         company: 'Valparaíso Profundo',
         duration: 'Apr 2022 - Oct 2022',
-        technologies: ['React Native', 'Firebase', 'Leaflet'],
+        technologies: ['React Native', 'Firebase', 'Leaflet', 'TypeScript', 'Git', 'GitHub', 'Agile', 'Scrum', 'Yarn', 'Expo'],
         description: [
             'Developed from scratch a self-guided tourism application for Valparaíso Profundo.',
             'Built and maintained the mobile application using Firebase and React Native.',
@@ -207,19 +201,26 @@ export const education = [
 ]
 
 export const projects = [
+    /* {
+           name: 'Project Alpha',
+           technologies: ['React', 'Node.js', 'MongoDB'],
+           description:
+               'A web application that streamlines project management tasks, enhancing team collaboration and productivity.',
+           link: 'https://asda.com',
+       }, */
     {
-        name: 'Project Alpha',
-        technologies: ['React', 'Node.js', 'MongoDB'],
+        name: 'InfoSismos - Earthquake Information Web App',
+        technologies: ['Ruby on Rails', 'Vue.js', 'USGS API'],
         description:
-            'A web application that streamlines project management tasks, enhancing team collaboration and productivity.',
-        link: 'https://asda.com',
+            'A web application that provides users access to seismic information from the last 30 days, obtained from the USGS (United States Geological Survey) site. It allows users to leave comments about seismic events. The project features a Ruby on Rails backend and Vue.js frontend.',
+        link: 'https://github.com/mmogaP/frogmi-backend',
     },
     {
-        name: 'Beta App',
-        technologies: ['Python', 'Django', 'PostgreSQL'],
+        name: 'UVA 2095: Mobile App for Retinal Examination Guidance',
+        technologies: ['Java', 'Android Studio', 'Mobile Development'],
         description:
-            'A mobile app that provides real-time analytics and insights for business users, helping them make informed decisions on the go.',
-        link: 'https://asda.com',
+            'A mobile application developed for retinal examinations where I focused on designing and developing the graphical user interface using Java. I created an intuitive and user-friendly interface for mobile devices, ensuring a smooth user experience. This project allowed me to apply my mobile app development skills and contribute to technological innovation in the visual health field.',
+        /* link: 'https://example.com', */ // You'll need to replace this with the actual project link if available
     },
 ]
 

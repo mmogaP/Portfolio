@@ -6,9 +6,9 @@
 <footer class="w-full bg-gray-100 py-4 text-center text-gray-500">
 	<!-- © {new Date().getFullYear()} Your Name. All rights reserved. -->
 	<div class="mx-auto max-w-4xl text-center">
-		<p class="mb-4 text-gray-600">
+		<!-- <p class="mb-4 text-gray-600">
 			Developed with ❤️ using Svelte, TypeScript, Tailwind CSS & Shadcn
-		</p>
+		</p> -->
 		<div class="flex justify-center space-x-6">
 			{#each socials as social}
 				<a
