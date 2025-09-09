@@ -1,35 +1,43 @@
 <script lang="ts">
 	import { contactInfo, education, experiences, extras, profile, projects } from '$lib/constants';
-	import { Briefcase, PackageOpen } from '@lucide/svelte';
+	import { Blocks, Briefcase, ClipboardPen, PackageOpen } from '@lucide/svelte';
 	import TimelineNav from '$lib/components/Timeline.svelte';
+	import * as Tabs from '$lib/components/ui/tabs/index.js';
+	import * as Card from '$lib/components/ui/card/index.js';
 </script>
 
 <!-- Navegación Timeline -->
 <TimelineNav />
 
-<div class="mx-auto max-w-4xl space-y-8 px-4 py-8 lg:px-24">
+<div class="mx-auto max-w-4xl space-y-8 px-4 py-8">
 	<!-- Profile Section -->
 	<section id="profile" class="p-8">
-		<div class="grid grid-cols-[1fr_auto] space-y-6 md:space-y-0 md:space-x-8">
+		<div class="grid space-x-10 md:grid-cols-[1fr_auto]">
 			<!-- Main Info -->
-			<div class="content-center text-justify">
+			<!-- {#if }
+                
+            {/if} -->
+			<div class="content-center">
+				<Briefcase class="mb-4 size-16" />
 				<h1 class="pb-6 text-4xl font-bold">{profile.name}</h1>
-				<h2 class="pb-2 text-lg font-semibold">{profile.title}</h2>
-				<p>{profile.aboutme}</p>
+				<h2 class="pb-2 text-xl font-semibold">{profile.title}</h2>
+				<p class="text-sm">{profile.aboutme}</p>
 			</div>
 			<!-- Avatar -->
-			<div>
+			<div class="flex items-center justify-center">
 				<img
 					src={profile.avatar}
 					alt={profile.name}
-					class="h-64 rounded-2xl object-contain shadow-lg"
+					class="size-72 rounded-2xl object-cover shadow-lg grayscale"
 				/>
 			</div>
 		</div>
+	</section>
 
-		<!-- Contact Info -->
-		<div class="mt-8 border-t border-neutral-600 pt-6">
-			<h3 class="mb-4 text-sm font-semibold tracking-wide uppercase">Contacto</h3>
+	<!-- contact info -->
+	<!-- <section id="contact" class="border-t border-neutral-600 p-8">
+		<div class="pt-6">
+			<h2 class="mb-4 text-2xl font-semibold tracking-wide uppercase">Contact</h2>
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				<a
 					href="mailto:{contactInfo.email}"
@@ -38,69 +46,72 @@
 					<span class="">📧</span>
 					<span>{contactInfo.email}</span>
 				</a>
-				<a
-					href="tel:{contactInfo.phone}"
-					class="hover: flex items-center space-x-3 transition-colors"
-				>
-					<span class="text-green-500">📱</span>
-					<span>{contactInfo.phone}</span>
-				</a>
+
 				<div class="flex items-center space-x-3">
 					<span class="text-red-500">📍</span>
 					<span>{contactInfo.location}</span>
 				</div>
 			</div>
-
-			<div class="mt-6">
-				<a
-					href="/cv.pdf"
-					download
-					class="inline-flex items-center rounded-lg bg-gray-600 px-4 py-2 transition-colors hover:bg-gray-700"
-				>
-					<span class="mr-2"><PackageOpen></PackageOpen></span>
-					Descargar CV
-				</a>
-			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- Experience -->
-	<section id="experience" class="p-8">
-		<h2 class="mb-6 flex items-center text-2xl font-bold">
+	<section id="experience" class="border-t border-neutral-600 p-8">
+		<!-- <h2 class="mb-6 flex items-center text-2xl font-bold">
 			<span class="mr-3"><Briefcase /></span>
-			Experiencia
-		</h2>
+			Experience
+		</h2> -->
 
-		<div class="space-y-8">
-			{#each experiences as exp}
-				<div class="border-l-4 border-gray-500 pb-6 pl-6">
-					<div class="mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
-						<h3 class="text-xl font-semibold">{exp.role}</h3>
-						<span class="rounded-full bg-gray-600 px-3 py-1 text-sm">{exp.duration}</span>
-					</div>
-					<h4 class="mb-4 text-lg font-medium">{exp.company}</h4>
+		<Tabs.Root value="account" class="w-full">
+			<Tabs.List class="bg-neutral-700">
+				<Tabs.Trigger value="account"
+					><span><ClipboardPen /></span>
+					Experience</Tabs.Trigger
+				>
+				<Tabs.Trigger value="password"><span><Blocks /></span>Technologies</Tabs.Trigger>
+			</Tabs.List>
+			<Tabs.Content value="account">
+				<Card.Root class="bg-neutral-700">
+					<!-- <Card.Header>
+						<Card.Title>Card Title</Card.Title>
+						<Card.Description>Card Description</Card.Description>
+					</Card.Header> -->
+					<Card.Content>
+						<div class="space-y-8">
+							{#each experiences as exp}
+								<div class="">
+									<div class="mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+										<h3 class="text-xl font-semibold">{exp.role}</h3>
+										<span class="rounded-full bg-gray-600 px-3 py-1 text-sm">{exp.duration}</span>
+									</div>
+									<h4 class="mb-4 text-lg font-medium">{exp.company}</h4>
 
-					<ul class="mb-4 space-y-2">
-						<li class="flex items-start">
-							<span class="mt-1 mr-2">•</span>
-							<span class="">{exp.description}</span>
-						</li>
-					</ul>
+									<ul class="mb-4 space-y-2">
+										<li class="flex items-start">
+											<span class="mt-1 mr-2">•</span>
+											<span class="">{exp.description}</span>
+										</li>
+									</ul>
 
-					<div class="flex flex-wrap gap-2">
-						{#each exp.technologies as tech}
-							<span class="rounded-full bg-gray-600 px-3 py-1 text-sm font-medium">
-								{tech}
-							</span>
-						{/each}
-					</div>
-				</div>
-			{/each}
-		</div>
+									<div class="flex flex-wrap gap-2">
+										{#each exp.technologies as tech}
+											<span class="rounded-full bg-gray-600 px-3 py-1 text-sm font-medium">
+												{tech}
+											</span>
+										{/each}
+									</div>
+								</div>
+							{/each}
+						</div>
+					</Card.Content>
+				</Card.Root>
+			</Tabs.Content>
+			<Tabs.Content value="password">Change your password here.</Tabs.Content>
+		</Tabs.Root>
 	</section>
 
 	<!-- Projects -->
-	<section id="projects" class="p-8">
+	<section id="projects" class="border-t border-neutral-600 p-8">
 		<h2 class="mb-6 flex items-center text-2xl font-bold">
 			<span class="mr-3">🚀</span>
 			Projects

@@ -1,5 +1,5 @@
 import { Github, Linkedin } from "@lucide/svelte"
-import avatar from '$lib/assets/mau.jpg';
+import avatar from '$lib/assets/yo.jpg';
 
 export const socials = [
     {
@@ -15,8 +15,7 @@ export const socials = [
 ]
 
 export const contactInfo = {
-    email: 'tu.email@ejemplo.com',
-    phone: '+56 9 1234 5678',
+    email: 'mmoraga.m3@gmail.com',
     location: 'Santiago, Chile',
 }
 

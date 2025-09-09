@@ -4,10 +4,10 @@
 
 	// Secciones del timeline
 	const sections = [
-		{ id: 'profile', label: 'Perfil', icon: User },
-		{ id: 'experience', label: 'Experiencia', icon: Briefcase },
-		{ id: 'projects', label: 'Proyectos', icon: FolderOpen },
-		{ id: 'education', label: 'Formación', icon: GraduationCap }
+		{ id: 'profile', label: 'Profile', icon: User },
+		{ id: 'experience', label: 'Experience', icon: Briefcase },
+		{ id: 'projects', label: 'Projects', icon: FolderOpen },
+		{ id: 'education', label: 'Education', icon: GraduationCap }
 	];
 
 	let activeSection = 'profile';
