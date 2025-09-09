@@ -20,6 +20,8 @@
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Badge } from '$lib/components/ui/badge';
+	import * as HoverCard from '$lib/components/ui/hover-card/index.js';
+	import * as Accordion from '$lib/components/ui/accordion/index.js';
 
 	import { onMount } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
@@ -117,36 +119,51 @@
 							{#each experiences as exp}
 								<div class="">
 									<div
-										class="mb-3 flex flex-col space-y-2 md:flex-row md:items-center md:justify-between"
+										class="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between"
 									>
 										<h2 class="text-xl font-semibold">{exp.role} @ {exp.company}</h2>
 										<span class="rounded-full border px-3 py-1 text-sm">{exp.duration}</span>
 									</div>
 
-									<ul class="mb-4 space-y-2">
-										{#if Array.isArray(exp.description)}
-											{#each exp.description as desc}
-												<li class="flex items-start">
-													<span class="mt-1 mr-2">•</span>
-													<span class="text-sm">{desc}</span>
-												</li>
-											{/each}
-										{:else}
-											<li class="flex items-start">
-												<span class="mt-1 mr-2">•</span>
-												<span class="text-sm">{exp.description}</span>
-											</li>
-										{/if}
-									</ul>
-
-									<div class="flex flex-wrap gap-2">
-										{#each exp.technologies as tech}
-											{@const techInfo = getTechCategoryInfo(tech)}
-											<Badge variant="outline" class={techInfo.color} title={techInfo.category}>
-												{tech}
-											</Badge>
-										{/each}
-									</div>
+									<Accordion.Root type="single">
+										<Accordion.Item value="item-1">
+											<Accordion.Trigger>
+												<span class="flex items-center gap-2">
+													<ClipboardPen class="size-4" />
+													Details
+												</span>
+											</Accordion.Trigger>
+											<Accordion.Content>
+												<ul class="mb-4 space-y-2">
+													{#if Array.isArray(exp.description)}
+														{#each exp.description as desc}
+															<li class="flex items-start">
+																<span class="mt-1 mr-2">•</span>
+																<span class="text-sm">{desc}</span>
+															</li>
+														{/each}
+													{:else}
+														<li class="flex items-start">
+															<span class="mt-1 mr-2">•</span>
+															<span class="text-sm">{exp.description}</span>
+														</li>
+													{/if}
+												</ul>
+												<div class="flex flex-wrap gap-2">
+													{#each exp.technologies as tech}
+														{@const techInfo = getTechCategoryInfo(tech)}
+														<Badge
+															variant="outline"
+															class={techInfo.color}
+															title={techInfo.category}
+														>
+															{tech}
+														</Badge>
+													{/each}
+												</div>
+											</Accordion.Content>
+										</Accordion.Item>
+									</Accordion.Root>
 								</div>
 							{/each}
 						</div>
@@ -211,7 +228,21 @@
 			{#each education as edu}
 				<div class="flex flex-col p-4 md:flex-row md:items-center md:justify-between">
 					<div class="flex-1">
-						<h3 class="text-lg font-semibold">{edu.degree}</h3>
+						<h3 class="text-lg font-semibold">
+							<HoverCard.Root>
+								<HoverCard.Trigger
+									href={edu.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:underline">{edu.degree}</HoverCard.Trigger
+								>
+								<!-- <HoverCard.Content>
+									<p class="max-w-xs rounded bg-gray-700 p-2 text-sm shadow-lg">
+										Click to view more details
+									</p>
+								</HoverCard.Content> -->
+							</HoverCard.Root>
+						</h3>
 						<p class="font-medium">{edu.institution}</p>
 						{#if edu.details}
 							<p class="mt-1 text-sm">{edu.details}</p>

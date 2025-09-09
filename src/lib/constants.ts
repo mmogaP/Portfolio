@@ -95,11 +95,37 @@ export const experiences = [
     {
         role: 'Software Engineer',
         company: 'University of Valparaíso',
-        duration: 'Jun 2018 - Dec 2019',
-        technologies: ['JavaScript', 'Python', 'Django'],
-        description:
-            'Assisted in the development of client websites and applications. Gained experience in front-end and back-end technologies, contributing to several successful project launches.',
+        duration: 'Mar 2023 - Dec 2023',
+        technologies: ['Node.js', 'TypeScript', 'Angular', 'PrimeNG'],
+        description: [
+            'Developed and maintained backend endpoints using Node.js and TypeScript for university systems.',
+            'Designed and implemented global and career-specific notification systems using Angular and PrimeNG.',
+            'Collaborated with frontend, backend, and university application teams for integrated development and implementation.',
+            'Gathered requirements and developed functionalities based on stakeholder needs.'
+        ],
     },
+    {
+        role: 'Backend Developer',
+        company: 'Consorcio Progresa, Codefire',
+        duration: 'Jan 2022 - Feb 2022',
+        technologies: ['Node.js', 'TypeScript', 'Swagger'],
+        description: [
+            'Developed and maintained backend endpoints using Node.js and TypeScript.',
+            'Created API documentation using Swagger and modularized backend architecture to improve maintainability and scalability.',
+            'Collaborated with frontend team for requirements gathering and system integration.'
+        ],
+    },
+    {
+        role: 'Mobile Developer',
+        company: 'Valparaíso Profundo',
+        duration: 'Apr 2022 - Oct 2022',
+        technologies: ['React Native', 'Firebase', 'Leaflet'],
+        description: [
+            'Developed from scratch a self-guided tourism application for Valparaíso Profundo.',
+            'Built and maintained the mobile application using Firebase and React Native.',
+            'Implemented geographic information visualization using Leaflet for enhanced user experience.'
+        ],
+    }
 ]
 
 export const education = [
@@ -107,13 +133,15 @@ export const education = [
         degree: 'Bachelor of Engineering in Computer Science',
         institution: 'University of Valparaíso',
         duration: '2017 - 2023',
+        href: 'https://drive.google.com/file/d/1jGsJKvrIJl8goae3ihwS5o8pcEP3POBx/view',
         details:
             'Relevant coursework included Data Structures, Algorithms, Database Systems, and Software Engineering.',
     },
     {
-        degree: 'Backend Development Bootcamp',
+        degree: 'Backend JavaScript Application Development Specialization',
         institution: 'Desafío Latam',
-        duration: '2024 - 2025',
+        duration: '2024 - May 2025',
+        href: 'https://empieza.desafiolatam.com/v/qGUkof8kgsxgkPbEHNBjar6M',
         details:
             'Intensive program focused on backend technologies, including Node.js, Express, and database management.',
     },
@@ -139,6 +167,7 @@ export const projects = [
 export const courses = [
     {
         title: 'Certifications',
+        href: 'https://www.credly.com/users/mmoraga',
         items: [
             'AWS Certified Solutions Architect',
             'Certified Scrum Master (CSM)',
@@ -146,6 +175,7 @@ export const courses = [
     },
     {
         title: 'Languages',
+        href: '',
         items: ['English (Fluent)', 'Spanish (Native)'],
     },
 ]
