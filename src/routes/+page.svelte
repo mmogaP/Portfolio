@@ -3,10 +3,9 @@
 		education,
 		experiences,
 		extras,
-		getTechCategoryInfo,
 		profile,
 		projects,
-		technologies
+		technologyCategories
 	} from '$lib/constants';
 	import {
 		BadgeCheckIcon,
@@ -16,17 +15,18 @@
 		FolderKanban,
 		GraduationCap
 	} from '@lucide/svelte';
-	import TimelineNav from '$lib/components/Timeline.svelte';
+
+	import { Badge } from '$lib/components/ui/badge/index.js';
+	import { Progress } from '$lib/components/ui/progress/index.js';
 	import * as Tabs from '$lib/components/ui/tabs/index.js';
 	import * as Card from '$lib/components/ui/card/index.js';
-	import { Badge } from '$lib/components/ui/badge';
 	import * as HoverCard from '$lib/components/ui/hover-card/index.js';
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 
 	import { onMount } from 'svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
-	import { Progress } from '$lib/components/ui/progress/index.js';
+	import { getLevelStats, getTechCategoryInfo, technologies } from '$lib/techUtils';
 
 	let mounted = false;
 	let showBadge = false;
@@ -37,6 +37,14 @@
 			showBadge = true;
 		}, 800);
 	});
+
+	let selectedCategory = 'frontend';
+
+	// Add this reactive statement
+	$: filteredTechnologies =
+		selectedCategory === 'all'
+			? technologies
+			: technologies.filter((tech) => tech.category === selectedCategory);
 </script>
 
 <!-- Navegación Timeline -->
@@ -113,7 +121,7 @@
 			<Tabs.Root value="experience" class="w-full">
 				<Tabs.List class="bg-neutral-700">
 					<Tabs.Trigger value="experience"><span><ClipboardPen /></span>Experience</Tabs.Trigger>
-					<Tabs.Trigger value="technologies"><span><Blocks /></span>Technologies</Tabs.Trigger>
+					<Tabs.Trigger value="technologies"><span><Blocks /></span>Skills</Tabs.Trigger>
 					<Tabs.Trigger value="projects"><span><FolderKanban /></span>Projects</Tabs.Trigger>
 				</Tabs.List>
 				<Tabs.Content value="experience">
@@ -176,18 +184,47 @@
 				</Tabs.Content>
 				<Tabs.Content value="technologies">
 					<Card.Root class="bg-neutral-700">
-						<Card.Content>
-							<div class="grid grid-cols-3 gap-6">
-								{#each technologies as tech}
-									<div class="space-y-2">
-										<!-- <img src={tech.icon} alt={tech.name} class="size-12" /> -->
-										<Badge variant="outline" title={tech.category} class={tech.color}>
-											{tech.name}
-										</Badge>
-										<span>
-											<Progress value={tech.level} />
-											{tech.level}%
-										</span>
+						<Card.Content class="p-6">
+							<!-- Simple Category Filter -->
+							<div class="mb-6 flex flex-wrap gap-2">
+								<button
+									class="rounded px-3 py-1 text-sm {selectedCategory === 'all'
+										? 'bg-blue-500 text-white'
+										: 'bg-neutral-600 hover:bg-neutral-500'}"
+									on:click={() => (selectedCategory = 'all')}
+								>
+									All
+								</button>
+								{#each Object.keys(technologyCategories) as category}
+									<button
+										class="rounded px-3 py-1 text-sm capitalize {selectedCategory === category
+											? 'bg-blue-500 text-white'
+											: 'bg-neutral-600 hover:bg-neutral-500'}"
+										on:click={() => (selectedCategory = category)}
+									>
+										{category}
+									</button>
+								{/each}
+							</div>
+
+							<!-- Technologies Grid -->
+							<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+								{#each filteredTechnologies as tech}
+									<div class="rounded-lg border border-neutral-600 p-4 hover:border-blue-400">
+										<div class="mb-3">
+											<Badge variant="outline" class="{tech.color} mb-2">
+												{tech.name}
+											</Badge>
+											<div class="text-xs text-gray-400 capitalize">{tech.category}</div>
+										</div>
+
+										<div class="space-y-2">
+											<div class="flex justify-between text-sm">
+												<span>{tech.level}</span>
+												<span class="text-gray-400">{tech.proficiency}%</span>
+											</div>
+											<Progress value={tech.proficiency} class="h-2" />
+										</div>
 									</div>
 								{/each}
 							</div>
@@ -266,24 +303,26 @@
 			</div>
 		</section>
 	{/if}
-</div>
 
-<!-- Extra -->
-<!-- <section id="extra" class=" p-8 ">
+	<!-- Extras Section -->
+	<div class="border-t border-neutral-600 p-8">
 		<h2 class="mb-6 flex items-center text-2xl font-bold">
-			<span class="mr-3">✨</span>
-			Extra
+			<span class="mr-3"><Blocks /></span>
+			Extras
 		</h2>
-
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each extras as extra}
-				<div class="flex items-start rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
-					<span class="mr-3 text-2xl">{extra.split(' ')[0]}</span>
-					<span class=">{extra.substring(extra.indexOf(' ') + 1)}</span>
-				</div>
+				<Card.Root class="bg-neutral-700">
+					<Card.Content class="flex flex-col items-center text-center">
+						<!-- <img src={extra.items} alt={extra.name} class="mb-4 size-16" /> -->
+						<!-- <h3 class="mb-2 text-lg font-semibold">{extra.name}</h3>
+						<p class="text-sm">{extra.description}</p> -->
+					</Card.Content>
+				</Card.Root>
 			{/each}
 		</div>
-	</section> -->
+	</div>
+</div>
 
 <style>
 	/* Animación CSS adicional para efectos de hover más suaves */

@@ -28,58 +28,114 @@ export const profile = {
 
 export const technologyCategories = {
     frontend: {
-        techs: ['React', 'Svelte', 'Vue.js', 'Angular', 'HTML5', 'CSS3', 'Tailwind CSS', 'JavaScript', 'TypeScript'],
+        techs: [
+            { name: 'React', level: 'Avanzado' },
+            { name: 'Svelte', level: 'Intermedio' },
+            { name: 'Vue.js', level: 'Intermedio' },
+            { name: 'Angular', level: 'Básico' },
+            { name: 'HTML5', level: 'Avanzado' },
+            { name: 'CSS3', level: 'Avanzado' },
+            { name: 'Tailwind CSS', level: 'Avanzado' },
+            { name: 'JavaScript', level: 'Avanzado' },
+            { name: 'TypeScript', level: 'Intermedio' }
+        ],
         color: 'bg-blue-500 hover:bg-blue-600 text-white border-blue-500'
     },
     backend: {
-        techs: ['HonoJS', 'Node.js', 'Express', 'Python', 'Django', 'FastAPI', 'Ruby on Rails', 'Java', 'Spring', 'PHP', 'Laravel'],
+        techs: [
+            { name: 'HonoJS', level: 'Intermedio' },
+            { name: 'Node.js', level: 'Avanzado' },
+            { name: 'Express', level: 'Avanzado' },
+            { name: 'Python', level: 'Intermedio' },
+            { name: 'Django', level: 'Básico' },
+            { name: 'FastAPI', level: 'Intermedio' },
+            { name: 'Ruby on Rails', level: 'Básico' },
+            { name: 'Java', level: 'Básico' },
+            { name: 'Spring', level: 'Principiante' },
+            { name: 'PHP', level: 'Básico' },
+            { name: 'Laravel', level: 'Básico' }
+        ],
         color: 'bg-green-500 hover:bg-green-600 text-white border-green-500'
     },
     database: {
-        techs: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'SQLite', 'Oracle', 'Cassandra', 'DynamoDB'],
+        techs: [
+            { name: 'MongoDB', level: 'Avanzado' },
+            { name: 'PostgreSQL', level: 'Intermedio' },
+            { name: 'MySQL', level: 'Intermedio' },
+            { name: 'Redis', level: 'Básico' },
+            { name: 'SQLite', level: 'Intermedio' },
+            { name: 'Oracle', level: 'Principiante' },
+            { name: 'Cassandra', level: 'Principiante' },
+            { name: 'DynamoDB', level: 'Básico' }
+        ],
         color: 'bg-purple-500 hover:bg-purple-600 text-white border-purple-500'
     },
     devops: {
-        techs: ['Docker', 'Kubernetes', 'AWS', 'Azure', 'GCP', 'Jenkins', 'GitLab CI', 'Terraform', 'Ansible'],
+        techs: [
+            { name: 'Docker', level: 'Intermedio' },
+            { name: 'Kubernetes', level: 'Básico' },
+            { name: 'AWS', level: 'Intermedio' },
+            { name: 'Azure', level: 'Básico' },
+            { name: 'GCP', level: 'Básico' },
+            { name: 'Jenkins', level: 'Básico' },
+            { name: 'GitLab CI', level: 'Intermedio' },
+            { name: 'Terraform', level: 'Principiante' },
+            { name: 'Ansible', level: 'Principiante' }
+        ],
         color: 'bg-orange-500 hover:bg-orange-600 text-white border-orange-500'
     },
     testing: {
-        techs: ['Postman', 'Jest', 'Cypress', 'Selenium', 'Mocha', 'Chai', 'Vitest', 'Playwright', 'Testing Library'],
+        techs: [
+            { name: 'Postman', level: 'Avanzado' },
+            { name: 'Jest', level: 'Intermedio' },
+            { name: 'Cypress', level: 'Intermedio' },
+            { name: 'Selenium', level: 'Básico' },
+            { name: 'Mocha', level: 'Básico' },
+            { name: 'Chai', level: 'Básico' },
+            { name: 'Vitest', level: 'Intermedio' },
+            { name: 'Playwright', level: 'Básico' },
+            { name: 'Testing Library', level: 'Intermedio' }
+        ],
         color: 'bg-red-500 hover:bg-red-600 text-white border-red-500'
     },
     tools: {
-        techs: ['Git', 'GitHub', 'GitLab', 'Figma', 'VS Code', 'Postman', 'Insomnia', 'Webpack', 'Vite'],
+        techs: [
+            { name: 'Git', level: 'Avanzado' },
+            { name: 'GitHub', level: 'Avanzado' },
+            { name: 'GitLab', level: 'Intermedio' },
+            { name: 'Figma', level: 'Intermedio' },
+            { name: 'VS Code', level: 'Avanzado' },
+            { name: 'Postman', level: 'Avanzado' },
+            { name: 'Insomnia', level: 'Intermedio' },
+            { name: 'Webpack', level: 'Básico' },
+            { name: 'Vite', level: 'Intermedio' }
+        ],
         color: 'bg-gray-500 hover:bg-gray-600 text-white border-gray-500'
     },
     mobile: {
-        techs: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Ionic', 'Xamarin', 'Cordova'],
+        techs: [
+            { name: 'React Native', level: 'Intermedio' },
+            { name: 'Flutter', level: 'Básico' },
+            { name: 'Swift', level: 'Principiante' },
+            { name: 'Kotlin', level: 'Principiante' },
+            { name: 'Ionic', level: 'Básico' },
+            { name: 'Xamarin', level: 'Principiante' },
+            { name: 'Cordova', level: 'Básico' }
+        ],
         color: 'bg-pink-500 hover:bg-pink-600 text-white border-pink-500'
     },
     api: {
-        techs: ['RESTful APIs', 'GraphQL', 'gRPC', 'WebSocket', 'REST API', 'API Gateway'],
+        techs: [
+            { name: 'RESTful APIs', level: 'Avanzado' },
+            { name: 'GraphQL', level: 'Intermedio' },
+            { name: 'gRPC', level: 'Básico' },
+            { name: 'WebSocket', level: 'Intermedio' },
+            { name: 'REST API', level: 'Avanzado' },
+            { name: 'API Gateway', level: 'Básico' }
+        ],
         color: 'bg-teal-500 hover:bg-teal-600 text-white border-teal-500'
     }
 };
-
-// Create a flattened array of technologies for easy iteration
-export const technologies = Object.entries(technologyCategories).flatMap(([category, data]) =>
-    data.techs.map(tech => ({
-        name: tech,
-        category: category,
-        level: Math.floor(Math.random() * 30) + 70, // Random proficiency between 70-100%
-        color: data.color
-    }))
-);
-
-// Function to get category info for a technology
-export function getTechCategoryInfo(tech: string): { category: string; color: string } {
-    for (const [category, data] of Object.entries(technologyCategories)) {
-        if (data.techs.some(t => t.toLowerCase() === tech.toLowerCase())) {
-            return { category, color: data.color };
-        }
-    }
-    return { category: 'other', color: 'bg-slate-500 hover:bg-slate-600 text-white border-slate-500' };
-}
 
 export const experiences = [
     {
