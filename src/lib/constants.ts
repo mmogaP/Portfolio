@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "@lucide/svelte"
+import { Github, Linkedin, Mail, Star } from "@lucide/svelte"
 import avatar from '$lib/assets/yo.jpg';
 import gif from '$lib/assets/gif.gif';
 
@@ -21,6 +21,11 @@ export const socials = [
         icon: Mail,
         href: 'mailto:mmoraga.m3@gmail.com'
     },
+    {
+        label: 'Credly',
+        icon: Star,
+        href: 'https://www.credly.com/users/mauricio-moraga'
+    }
 ]
 
 export const profile = {
@@ -99,10 +104,11 @@ export const technologyCategories = {
             { name: 'GitHub', level: 'Advanced' },
             { name: 'Figma', level: 'Intermediate' },
             { name: 'Swagger', level: 'Intermediate' },
-            { name: 'Jira', level: 'Basic' },
+            { name: 'Jira', level: 'Advanced' },
             { name: 'Bun', level: 'Intermediate' },
             { name: 'Yarn', level: 'Intermediate' },
-            { name: 'Expo', level: 'Basic' }
+            { name: 'Expo', level: 'Basic' },
+            { name: 'Notion', level: 'Expert' }
         ],
         color: 'bg-gray-500 hover:bg-gray-600 text-white border-gray-500'
     },
@@ -111,7 +117,8 @@ export const technologyCategories = {
             { name: 'React Native', level: 'Intermediate' },
             { name: 'Flutter', level: 'Intermediate' },
             { name: 'Kotlin', level: 'Intermediate' },
-            { name: 'Android Studio', level: 'Basic' }
+            { name: 'Android Studio', level: 'Basic' },
+            { name: 'Capacitor', level: 'Intermediate' }
         ],
         color: 'bg-pink-500 hover:bg-pink-600 text-white border-pink-500'
     },
@@ -188,7 +195,7 @@ export const education = [
         duration: '2017 - 2023',
         href: 'https://drive.google.com/file/d/1jGsJKvrIJl8goae3ihwS5o8pcEP3POBx/view',
         details:
-            'Relevant coursework included Data Structures, Algorithms, Database Systems, and Software Engineering.',
+            'Develop quality computer systems using world-class standards for diverse organizations, manage IT projects involving information and communication technologies efficiently and effectively across various organizations, and integrate Information and Communication Technologies coherently with organizational objectives.',
     },
     {
         degree: 'Backend JavaScript Application Development Specialization',
@@ -196,7 +203,7 @@ export const education = [
         duration: '2024 - May 2025',
         href: 'https://empieza.desafiolatam.com/v/qGUkof8kgsxgkPbEHNBjar6M',
         details:
-            'Intensive program focused on backend technologies, including Node.js, Express, and database management.',
+            'Intensive program focused on backend technologies, including Node.js, Express, TypeScript, and database management.',
     },
 ]
 

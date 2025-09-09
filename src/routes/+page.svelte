@@ -333,9 +333,8 @@
 										href={edu.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="
-											text-sm 
-											hover:text-blue-400
+										class=" 
+										hover:text-blue-400
 											hover:underline"
 									>
 										{edu.degree}</HoverCard.Trigger
