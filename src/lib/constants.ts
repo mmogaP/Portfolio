@@ -32,7 +32,7 @@ export const profile = {
     name: 'Mauricio Moraga Michaud',
     title: 'Software Engineer',
     avatar: avatar,
-    aboutme: 'I am a dedicated software engineer with a strong background in developing scalable web applications. With a keen eye for detail and a commitment to quality, I strive to create solutions that not only meet but exceed client expectations. My expertise spans various technologies, and I am always eager to learn and adapt to new challenges in the ever-evolving tech landscape.',
+    aboutme: 'I am a dedicated software engineer with a strong background in developing scalable web applications. With a keen eye for detail and a commitment to quality. My expertise spans various technologies, and I am always eager to learn and adapt to new challenges.',
 }
 
 export const technologyCategories = {
@@ -195,7 +195,7 @@ export const education = [
         duration: '2017 - 2023',
         href: 'https://drive.google.com/file/d/1jGsJKvrIJl8goae3ihwS5o8pcEP3POBx/view',
         details:
-            'Develop quality computer systems using world-class standards for diverse organizations, manage IT projects involving information and communication technologies efficiently and effectively across various organizations, and integrate Information and Communication Technologies coherently with organizational objectives.',
+            'Computer Systems Engineering graduate specializing in quality software development and IT project management. Focused on strategically integrating information and communication technologies to optimize organizational processes and achieve business objectives.',
     },
     {
         degree: 'Backend JavaScript Application Development Specialization',

@@ -36,7 +36,6 @@
 
 	let selectedCategory = 'frontend';
 
-	// Add this reactive statement
 	$: filteredTechnologies =
 		selectedCategory === 'all'
 			? technologies
