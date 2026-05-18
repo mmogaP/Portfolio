@@ -32,7 +32,7 @@ export const profile = {
     name: 'Mauricio Moraga Michaud',
     title: 'Software Engineer',
     avatar: avatar,
-    aboutme: 'I am a dedicated software engineer with a strong background in developing scalable web applications. With a keen eye for detail and a commitment to quality. My expertise spans various technologies, and I am always eager to learn and adapt to new challenges.',
+    aboutme: 'Software Engineer and former CTO with experience building production systems from zero to market. Led technical development at RedOcean, a SaaS startup partnered with the Chilean Navy and selected for Google for Startups. Full-stack expertise spanning Node.js, Svelte, Python, and cloud infrastructure on GCP and AWS.',
 }
 
 export const technologyCategories = {
@@ -208,13 +208,12 @@ export const education = [
 ]
 
 export const projects = [
-    /* {
-           name: 'Project Alpha',
-           technologies: ['React', 'Node.js', 'MongoDB'],
-           description:
-               'A web application that streamlines project management tasks, enhancing team collaboration and productivity.',
-           link: 'https://asda.com',
-       }, */
+    {
+        name: 'RedOcean — Oceanic Drift SaaS Platform',
+        technologies: ['Svelte', 'HonoJS', 'FastAPI', 'Python', 'GCP', 'Docker', 'SQLite', 'Copernicus API'],
+        description:
+            'SaaS platform for oceanic drift prediction built in partnership with the Chilean Navy. Reduced infrastructure costs by 75% through Google Cloud Run migration and automated daily satellite data ingestion from Copernicus. Selected for the Google for Startups program.',
+    },
     {
         name: 'InfoSismos - Earthquake Information Web App',
         technologies: ['Ruby on Rails', 'Vue.js', 'USGS API'],

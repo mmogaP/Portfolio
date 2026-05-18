@@ -10,8 +10,8 @@
 		{ id: 'education', label: 'Education', icon: GraduationCap }
 	];
 
-	let activeSection = 'profile';
-	let scrollY = 0;
+	let activeSection = $state('profile');
+	let scrollY = $state(0);
 
 	// Función para hacer scroll suave a una sección
 	function scrollToSection(sectionId: string) {
@@ -44,9 +44,7 @@
 	}
 
 	onMount(() => {
-		// Escuchar cambios en el scroll
 		const handleScroll = () => {
-			scrollY = window.scrollY;
 			updateActiveSection();
 		};
 
@@ -65,7 +63,8 @@
 
 		<!-- Puntos y labels del timeline -->
 		<ul class="space-y-8">
-			{#each sections as section}
+			{#each sections as section (section.id)}
+				{@const Icon = section.icon}
 				<li class="relative">
 					<!-- Punto del timeline -->
 					<button
@@ -73,10 +72,10 @@
 							{activeSection === section.id
 							? 'border-white bg-white text-gray-900 shadow-lg'
 							: 'border-gray-600 bg-gray-800 text-gray-300 hover:border-gray-400 hover:bg-gray-700'}"
-						on:click={() => scrollToSection(section.id)}
+						onclick={() => scrollToSection(section.id)}
 						aria-label={`Ir a ${section.label}`}
 					>
-						<svelte:component this={section.icon} class="h-5 w-5" />
+						<Icon class="h-5 w-5" />
 					</button>
 
 					<!-- Label -->
