@@ -196,7 +196,7 @@
 								<span style="font-size: 11px; color: #666;">{exp.role}</span>
 								<span style="font-size: 10px; color: #aaa; white-space: nowrap;">{exp.duration}</span>
 							</div>
-							<Accordion.Root type="single">
+							<Accordion.Root type="single" value={exp.company === 'RedOcean' ? 'details' : undefined}>
 								<Accordion.Item value="details">
 									<Accordion.Trigger>
 										<span style="font-size: 11px; color: #aaa; cursor: pointer;">Details</span>
