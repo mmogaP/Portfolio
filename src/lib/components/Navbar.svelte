@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	const links = [
 		{ name: 'Home', id: 'hero' },
 		{ name: 'Experience', id: 'experience' },
@@ -6,9 +8,13 @@
 		{ name: 'Blog', id: 'blog' }
 	];
 
-	function scrollTo(id: string) {
-		const el = document.getElementById(id);
-		if (el) window.scrollTo({ top: el.offsetTop - 52, behavior: 'smooth' });
+	function navigate(id: string) {
+		if ($page.url.pathname === '/') {
+			const el = document.getElementById(id);
+			if (el) window.scrollTo({ top: el.offsetTop - 52, behavior: 'smooth' });
+		} else {
+			window.location.href = `/#${id}`;
+		}
 	}
 </script>
 
@@ -28,7 +34,7 @@
 		{#each links as link (link.id)}
 			<li>
 				<button
-					onclick={() => scrollTo(link.id)}
+					onclick={() => navigate(link.id)}
 					style="background: none; border: none; cursor: pointer; color: #aaa; font-size: 11px; font-family: inherit; padding: 0; transition: color 0.15s;"
 					onmouseenter={(e) => ((e.currentTarget as HTMLElement).style.color = '#111')}
 					onmouseleave={(e) => ((e.currentTarget as HTMLElement).style.color = '#aaa')}

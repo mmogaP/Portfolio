@@ -350,16 +350,7 @@
 						"
 					>
 						<div style="flex: 1;">
-							<h3 style="font-size: 0.88rem; font-weight: 600; margin-bottom: 5px;">
-								<a
-									href={edu.href}
-									target="_blank"
-									rel="noopener noreferrer"
-									style="color: #111; text-decoration: none; transition: opacity 0.18s;"
-									onmouseenter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.55')}
-									onmouseleave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
-								>{edu.degree}</a>
-							</h3>
+							<h3 style="font-size: 0.88rem; font-weight: 600; margin-bottom: 5px;">{edu.degree}</h3>
 							<p style="font-size: 11px; color: #888; margin-bottom: 8px;">{edu.institution}</p>
 							{#if edu.details}
 								<p style="font-size: 11px; color: #aaa; line-height: 1.65; max-width: 60ch;">{edu.details}</p>
