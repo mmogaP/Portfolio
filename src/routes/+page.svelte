@@ -376,17 +376,23 @@
 <!-- ── Blog ───────────────────────────────────────────────────── -->
 {#if mounted}
 	{@const featured = data.posts.find((p) => p.featured)}
-	{@const regular = data.posts.filter((p) => !p.featured)}
+	{@const regular = data.posts.filter((p) => !p.featured).slice(0, featured ? 2 : 3)}
 	<section
 		id="blog"
 		class="reveal section-pad"
 		style="padding: 4rem 2rem 5rem; animation-delay: 0.3s; border-top: 1px solid #dddbd5;"
 	>
 		<div style="max-width: 72rem; margin: 0 auto;">
-			<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+			<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
 				<div style="display: inline-flex; align-items: center; padding: 5px 12px; border: 1px solid #d8d5d0; font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.12em;">
 					Blog
 				</div>
+				<a
+					href="/blog"
+					style="font-size: 11px; color: #aaa; text-decoration: none; transition: color 0.15s;"
+					onmouseenter={(e) => ((e.currentTarget as HTMLElement).style.color = '#111')}
+					onmouseleave={(e) => ((e.currentTarget as HTMLElement).style.color = '#aaa')}
+				>All posts →</a>
 			</div>
 
 			{#if featured}
