@@ -26,9 +26,9 @@
 
 	// ── stats count-up ─────────────────────────────────────────
 	const statTargets = [
-		{ end: 3,  suffix: '+', label: 'Years\nExperience'     },
+		{ end: 2,  suffix: '+', label: 'Years\nExperience'     },
 		{ end: 57, suffix: '+', label: 'Technologies\nIn My Stack' },
-		{ end: 4,  suffix: '',  label: 'Companies\nWorked With' },
+		{ end: 2,  suffix: '',  label: 'Companies\nWorked With' },
 		{ end: 2,  suffix: '+', label: 'Projects\nHighlighted'  },
 	];
 	let statValues = $state([0, 0, 0, 0]);

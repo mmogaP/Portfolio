@@ -162,40 +162,6 @@ export const experiences = [
         ],
         gif: gif
     },
-    {
-        role: 'Software Engineer',
-        company: 'University of Valparaíso',
-        duration: 'Mar 2023 - Dec 2023',
-        technologies: ['Node.js', 'TypeScript', 'Angular', 'PrimeNG', 'REST API', 'Git', 'GitHub', 'Vitest', 'Jest', 'Scrum', 'Agile', 'Swagger'],
-        description: [
-            'Developed and maintained backend endpoints using Node.js and TypeScript for university systems.',
-            'Designed and implemented global and career-specific notification systems using Angular and PrimeNG.',
-            'Collaborated with frontend, backend, and university application teams for integrated development and implementation.',
-            'Gathered requirements and developed functionalities based on stakeholder needs.'
-        ],
-    },
-    {
-        role: 'Backend Developer',
-        company: 'Consorcio Progresa, Codefire',
-        duration: 'Jan 2022 - Feb 2022',
-        technologies: ['Node.js', 'TypeScript', 'Swagger', 'REST API', 'Git', 'GitHub', 'Jest', 'Scrum', 'Agile'],
-        description: [
-            'Developed and maintained backend endpoints using Node.js and TypeScript.',
-            'Created API documentation using Swagger and modularized backend architecture to improve maintainability and scalability.',
-            'Collaborated with frontend team for requirements gathering and system integration.'
-        ],
-    },
-    {
-        role: 'Mobile Developer',
-        company: 'Valparaíso Profundo',
-        duration: 'Apr 2022 - Oct 2022',
-        technologies: ['React Native', 'Firebase', 'Leaflet', 'TypeScript', 'Git', 'GitHub', 'Agile', 'Scrum', 'Yarn', 'Expo'],
-        description: [
-            'Developed from scratch a self-guided tourism application for Valparaíso Profundo.',
-            'Built and maintained the mobile application using Firebase and React Native.',
-            'Implemented geographic information visualization using Leaflet for enhanced user experience.'
-        ],
-    }
 ]
 
 export const education = [
