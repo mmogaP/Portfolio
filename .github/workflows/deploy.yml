@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  repository_dispatch:
+    types: [sync-blog]
 
 jobs:
   deploy:
@@ -13,6 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Sync blog posts from Vaulty
+        run: |
+          git clone https://${{ secrets.GH_PAT }}@github.com/mmogaP/Vaulty.git /tmp/vaulty
+          mkdir -p src/content/blog
+          cp "/tmp/vaulty/01 - Blog/Publicados/"*.md src/content/blog/ 2>/dev/null || true
 
       - uses: oven-sh/setup-bun@v2
         with:

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import {
-		blogPosts,
 		education,
 		experiences,
 		profile,
@@ -12,6 +11,9 @@
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import { onMount } from 'svelte';
 	import { getTechCategoryInfo } from '$lib/techUtils';
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 
 	// ── mount & badge ──────────────────────────────────────────
 	let mounted = $state(false);
@@ -373,8 +375,8 @@
 
 <!-- ── Blog ───────────────────────────────────────────────────── -->
 {#if mounted}
-	{@const featured = blogPosts.find((p) => p.featured)}
-	{@const regular = blogPosts.filter((p) => !p.featured)}
+	{@const featured = data.posts.find((p) => p.featured)}
+	{@const regular = data.posts.filter((p) => !p.featured)}
 	<section
 		id="blog"
 		class="reveal section-pad"
@@ -385,12 +387,12 @@
 				<div style="display: inline-flex; align-items: center; padding: 5px 12px; border: 1px solid #d8d5d0; font-size: 10px; color: #999; text-transform: uppercase; letter-spacing: 0.12em;">
 					Blog
 				</div>
-				<span style="font-size: 10px; color: #ccc; font-style: italic;">drafts · coming soon</span>
 			</div>
 
 			{#if featured}
-				<div
-					style="border-top: 2px solid #111; padding-top: 1.75rem; margin-bottom: 2.5rem; transition: opacity 0.2s;"
+				<a
+					href="/blog/{featured.slug}"
+					style="display: block; text-decoration: none; color: inherit; border-top: 2px solid #111; padding-top: 1.75rem; margin-bottom: 2.5rem; transition: opacity 0.2s;"
 					onmouseenter={(e) => ((e.currentTarget as HTMLElement).style.opacity = '0.75')}
 					onmouseleave={(e) => ((e.currentTarget as HTMLElement).style.opacity = '1')}
 				>
@@ -403,9 +405,10 @@
 						{/each}
 					</div>
 					<div style="display: flex; gap: 12px; font-size: 10px; color: #bbb;">
-						<span>{featured.readTime} read</span><span>·</span><span>{featured.date}</span>
+						{#if featured.readTime}<span>{featured.readTime} read</span><span>·</span>{/if}
+						<span>{featured.date}</span>
 					</div>
-				</div>
+				</a>
 			{/if}
 
 			<div
@@ -413,14 +416,16 @@
 				style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #dddbd5;"
 			>
 				{#each regular as post, i (post.title)}
-					<div
+					<a
+						href="/blog/{post.slug}"
 						class={i === 0 ? 'blog-border' : ''}
-						style="padding: 1.75rem; border-right: {i === 0 ? '1px solid #dddbd5' : 'none'}; transition: background 0.2s;"
+						style="display: block; text-decoration: none; color: inherit; padding: 1.75rem; border-right: {i === 0 ? '1px solid #dddbd5' : 'none'}; transition: background 0.2s;"
 						onmouseenter={(e) => ((e.currentTarget as HTMLElement).style.background = '#efede9')}
 						onmouseleave={(e) => ((e.currentTarget as HTMLElement).style.background = 'transparent')}
 					>
 						<div style="display: flex; gap: 12px; font-size: 10px; color: #bbb; margin-bottom: 10px;">
-							<span>{post.readTime} read</span><span>·</span><span>{post.date}</span>
+							{#if post.readTime}<span>{post.readTime} read</span><span>·</span>{/if}
+							<span>{post.date}</span>
 						</div>
 						<h3 style="font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; line-height: 1.35;">{post.title}</h3>
 						<p style="font-size: 11px; color: #aaa; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{post.excerpt}</p>
@@ -429,7 +434,7 @@
 								<span class="skill-pill">{tag}</span>
 							{/each}
 						</div>
-					</div>
+					</a>
 				{/each}
 			</div>
 		</div>
