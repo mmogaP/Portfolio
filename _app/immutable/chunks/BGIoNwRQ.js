@@ -1,10 +1,13 @@
 const d=`---
 title: "Publishing from Obsidian to My Portfolio: A Zero-Friction Pipeline"
-excerpt: "How I connected my Obsidian vault to my personal site so that writing a post and pushing to GitHub is all it takes to publish — no CMS, no admin panel, just markdown."
+excerpt: How I connected my Obsidian vault to my personal site so that writing a post and pushing to GitHub is all it takes to publish — no CMS, no admin panel, just markdown.
 date: 2026-05-19
-tags: [Obsidian, GitHub Actions, SvelteKit]
+tags:
+  - Obsidian
+  - GitHub Actions
+  - SvelteKit
 readTime: 5 min
-featured: false
+featured: true
 ---
 
 I've been using Obsidian as my second brain for a while — notes, ideas, drafts, daily logs. The problem was that publishing anything from it to my portfolio felt like a separate job. Copy the file, format it, paste it somewhere, deploy. Too many steps, so I never did it.
