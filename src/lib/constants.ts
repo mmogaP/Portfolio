@@ -1,5 +1,5 @@
-import { Github, Linkedin, Mail, Star } from "@lucide/svelte"
-import avatar from '$lib/assets/yo.jpg';
+import { Github, Linkedin, Mail, Award } from "@lucide/svelte"
+import avatar from '$lib/assets/avatar.jpg';
 import gif from '$lib/assets/gif.gif';
 
 
@@ -23,16 +23,16 @@ export const socials = [
     },
     {
         label: 'Credly',
-        icon: Star,
+        icon: Award,
         href: 'https://www.credly.com/users/mauricio-moraga'
     }
 ]
 
 export const profile = {
     name: 'Mauricio Moraga Michaud',
-    title: 'Software Engineer',
+    title: 'Builder',
     avatar: avatar,
-    aboutme: 'Software Engineer and former CTO with experience building production systems from zero to market. Led technical development at RedOcean, a SaaS startup partnered with the Chilean Navy and selected for Google for Startups. Full-stack expertise spanning Node.js, Svelte, Python, and cloud infrastructure on GCP and AWS.',
+    aboutme: 'Generalist by nature. I like picking up new tools, exploring ideas outside my comfort zone, and learning just enough of everything to connect the dots. I build things to solve my own problems — and occasionally to help interesting ideas come to life.',
 }
 
 export const technologyCategories = {
@@ -142,6 +142,16 @@ export const technologyCategories = {
 
 export const experiences = [
     {
+        role: 'Data Engineer',
+        company: 'Deloitte',
+        duration: 'Oct 2025 - Present',
+        technologies: ['Python', 'SQL', 'dbt', 'GCP', 'BigQuery', 'AI Agents', 'Scrum', 'Agile', 'Git', 'GitHub'],
+        description: [
+            'Working as a Data Engineer at Deloitte, embedded within Banco de Chile as the primary client. Focused on data pipeline development and variable engineering to support analytical and operational processes.',
+            'Building AI agents to automate and augment banking workflows, applying modern LLM tooling to real-world financial use cases.',
+        ],
+    },
+    {
         role: 'CTO | Software Engineer',
         company: 'RedOcean',
         duration: 'Jul 2024 - Jul 2025',
@@ -243,6 +253,31 @@ export const courses = [
         title: 'Languages',
         href: '',
         items: ['English (Fluent)', 'Spanish (Native)'],
+    },
+]
+
+export const blogPosts = [
+    {
+        title: 'Reducing Cloud Costs by 75%: A Microservices Migration Story',
+        excerpt: "How we migrated RedOcean's architecture to Google Cloud Run and cut monthly costs from $300k to $70k CLP — key architectural decisions and lessons learned.",
+        tags: ['GCP', 'Docker', 'Microservices'],
+        date: 'Apr 15, 2025',
+        readTime: '8 min',
+        featured: true,
+    },
+    {
+        title: 'Real-Time Satellite Data Ingestion with the Copernicus API',
+        excerpt: "Building the automated pipeline that ingests daily oceanic data from ESA's Copernicus Marine Service — from API quirks to scalable FastAPI workers.",
+        tags: ['Python', 'FastAPI', 'GCP'],
+        date: 'Mar 02, 2025',
+        readTime: '6 min',
+    },
+    {
+        title: 'Why I Switched from Express to HonoJS (and Bun)',
+        excerpt: "After years with Node.js + Express, I made the switch at RedOcean. Here's what I learned about DX improvements and real-world performance gains.",
+        tags: ['HonoJS', 'Node.js', 'Bun'],
+        date: 'Jan 20, 2025',
+        readTime: '5 min',
     },
 ]
 

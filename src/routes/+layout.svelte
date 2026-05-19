@@ -10,6 +10,12 @@
 <svelte:head>
 	<title>Mauricio Moraga | Software Engineer</title>
 	<link rel="icon" href={file_user} />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap"
+		rel="stylesheet"
+	/>
 	<meta
 		name="description"
 		content="Mauricio Moraga — Software Engineer & former CTO based in Chile. Built a SaaS platform for the Chilean Navy, selected for Google for Startups. Full-stack: Node.js, Svelte, Python, GCP, Docker."
@@ -29,10 +35,10 @@
 	/>
 </svelte:head>
 
-<div class="grid grid-rows-[1fr_auto]">
-	<main class="dark min-h-screen w-screen bg-neutral-800 bg-center p-4 text-white">
+<div style="display: flex; flex-direction: column; min-height: 100vh;">
+	<Navbar />
+	<main style="flex: 1;">
 		{@render children?.()}
 	</main>
-
 	<Footer />
 </div>
